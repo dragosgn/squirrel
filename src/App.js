@@ -1,15 +1,17 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {compose} from "recompose"
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        
-      </div>
-    );
-  }
+const Root = styled.div`
+
+`
+
+const App = () => {
+  return <Root>
+    This is the start of a long friendship
+  </Root>
 }
 
-export default App;
+
+export default compose(
+
+)(App)
