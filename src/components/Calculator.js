@@ -3,7 +3,7 @@ import styled from "styled-components"
 import {compose} from "recompose"
 import {reduxForm} from 'redux-form'
 import {Field} from 'redux-form'
-import connect from "redux"
+import {connect} from 'react-redux'
 
 
 const Root = styled.div`
@@ -66,16 +66,16 @@ let Calculator = () => {
     </StyledForm>
     <div>
       <p>Total spendings:</p>
-
+      {this.props.spendings}
     </div>
   </Root>
 }
 
 
 export default compose(
-  connect(state => (
-
-  )),
+  connect(state => {
+    return {spendings: state.spendings}
+  }),
   reduxForm({
     form: 'budgetCalculation'
   })
