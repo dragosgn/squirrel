@@ -59,12 +59,22 @@ const StyledButton = styled.button`
   border: solid 2px white;
   border-radius: 2px;
   padding: 1rem;
+  cursor: pointer;
+  :hover {
+    background-color: white;
+    font-weight: bold;
+    color: ${ props => props.theme.brandGrey};
+  }
+`
+
+const Logo = styled.h3`
+  color: white;
 `
 
 const App = () => {
   return <Root>
     <UpperSection>
-      <Row>Blink</Row>
+      <Row><Logo>Blin</Logo></Row>
       <Row>
         <Col>
           <Row>
@@ -76,7 +86,6 @@ const App = () => {
         </Col>
       </Row>
       <Row><StyledButton>Start Now</StyledButton></Row>
-
     </UpperSection>
     <Row align="flex-end">
       <StyledLink to="/budgeting">Budgeting</StyledLink>
