@@ -39,7 +39,7 @@ const Row = styled.div`
   align-items: center;
 `
 
-let Calculator = () => {
+let Calculator = (props) => {
   return <Root>
     <StyledForm>
       <Row>
@@ -66,7 +66,7 @@ let Calculator = () => {
     </StyledForm>
     <div>
       <p>Total spendings:</p>
-      {this.props.spendings}
+      {props.spendings}
     </div>
   </Root>
 }
@@ -74,7 +74,7 @@ let Calculator = () => {
 
 export default compose(
   connect(state => {
-    return {spendings: state.spendings}
+    return {spendings: state.form.budgetCalculation.spendings}
   }),
   reduxForm({
     form: 'budgetCalculation'
