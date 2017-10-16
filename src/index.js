@@ -6,6 +6,8 @@ import {Provider} from "react-redux"
 import {render} from 'react-dom'
 import {composeWithDevTools} from 'redux-devtools-extension'
 
+import budgetReducer from "./reducers/budget"
+
 
 import App from './App'
 
@@ -15,7 +17,6 @@ const rootReducer = combineReducers({
     budgetCalculation: budgetReducer
   })
 })
-
 
 const theme = {
   brandBlue: '#242f40',
