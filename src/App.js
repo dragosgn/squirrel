@@ -1,6 +1,7 @@
 import React from 'react'
 import {compose} from "recompose"
 import styled from 'styled-components'
+import {Link} from 'react-router-dom'
 
 
 const Section = styled.div`
@@ -11,27 +12,31 @@ const Root = styled.div`
 
 `
 
-const Bg = styled.div`
+const UpperSection = styled.div`
   background-image: url("http://bossfight.co/wp-content/uploads/2017/05/bossfight-free-stock-photos-coffee-shop-people-lights.jpg");
   background-size: cover;                      /* <------ */
   background-repeat: no-repeat;
   background-position: center center;
-  filter: blur(1px);
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: -1;
+  padding: 3rem;
 `
 
 const Row = styled.div`
   display: flex;
   align-items: center;
+  justify-content: ${props => props.align ? props.align : "flex-start"};
 `
 
 const Statement = styled.h1`
   color: ${ props => props.theme.brandWhite};
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+  font-size: 60px;
+  font-weight: 700;
+  font-family: 'Muli', sans-serif;
+`
+
+const ScondaryStatement =styled.h1`
+  color: ${ props => props.theme.brandGrey};
   margin-top: 0rem;
   margin-bottom: 0rem;
   font-size: 60px;
@@ -44,11 +49,13 @@ const Col = styled.div`
   flex-direction: column;
 `
 
+const StyledLink = styled(Link)`
+
+`
 
 const App = () => {
   return <Root>
-    <Section>
-      <Bg />
+    <UpperSection>
       <Row>Blink</Row>
       <Row>
         <Col>
@@ -63,12 +70,24 @@ const App = () => {
       <Row>App Store</Row>
       <Row>Google Play</Row>
       <Row>Learn more</Row>
-    </Section>
+    </UpperSection>
+    <Row align="flex-end">
+      <StyledLink to="/budgeting">Budgeting</StyledLink>
+      <StyledLink to="/forecasting">Forcasting</StyledLink>
+      <StyledLink to="/plans">Plans</StyledLink>
+    </Row>
     <Section>
       <Row>
+        <Col>
+          <ScondaryStatement>
+            Make mobile payments easy
+          </ScondaryStatement>
+          <p>With Verse, you can now pay and request money from your friends in the time it takes you to send a text message. It’s fast, safe, easy, and free- no hidden fees!</p>
+        </Col>
+        <Col>
 
+        </Col>
       </Row>
-
     </Section>
   </Root>
 }

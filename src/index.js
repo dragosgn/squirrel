@@ -5,6 +5,9 @@ import { reducer as formReducer } from 'redux-form'
 import {Provider} from "react-redux"
 import {render} from 'react-dom'
 import {composeWithDevTools} from 'redux-devtools-extension'
+import {
+  BrowserRouter as Router
+} from 'react-router-dom'
 
 import budgetReducer from "./reducers/budget"
 
@@ -20,7 +23,8 @@ const rootReducer = combineReducers({
 
 const theme = {
   brandBlue: '#242f40',
-  brandWhite: 'white'
+  brandWhite: 'white',
+  brandGrey: "#586065"
 }
 
 let store = createStore(rootReducer, composeWithDevTools())
@@ -28,9 +32,11 @@ let store = createStore(rootReducer, composeWithDevTools())
 const renderApp = (Component) => {
   render(
     <ThemeProvider theme={theme}>
-      <Provider store={store}>
-        <Component />
-      </Provider>
+      <Router>
+        <Provider store={store}>
+          <Component />
+        </Provider>
+      </Router>
     </ThemeProvider>,  document.getElementById('root'))
 }
 
