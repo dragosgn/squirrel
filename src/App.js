@@ -17,7 +17,7 @@ const UpperSection = styled.div`
   background-size: cover;                      /* <------ */
   background-repeat: no-repeat;
   background-position: center center;
-  padding: 3rem;
+  padding: 9rem 3rem 9rem 3rem;
 `
 
 const Row = styled.div`
@@ -52,6 +52,14 @@ const Col = styled.div`
 const StyledLink = styled(Link)`
 
 `
+const StyledButton = styled.button`
+  background-color: transparent;
+  color: white;
+  font-size: 1.2rem;
+  border: solid 2px white;
+  border-radius: 2px;
+  padding: 1rem;
+`
 
 const App = () => {
   return <Root>
@@ -67,9 +75,8 @@ const App = () => {
           </Row>
         </Col>
       </Row>
-      <Row>App Store</Row>
-      <Row>Google Play</Row>
-      <Row>Learn more</Row>
+      <Row><StyledButton>Start Now</StyledButton></Row>
+
     </UpperSection>
     <Row align="flex-end">
       <StyledLink to="/budgeting">Budgeting</StyledLink>
