@@ -3,6 +3,7 @@ import styled from "styled-components"
 import {compose} from "recompose"
 import {reduxForm} from 'redux-form'
 import {Field} from 'redux-form'
+import connect from "redux"
 
 
 const Root = styled.div`
@@ -38,38 +39,43 @@ const Row = styled.div`
   align-items: center;
 `
 
-let Calculator = (props) => {
+let Calculator = () => {
   return <Root>
     <StyledForm>
       <Row>
         <p>Net Income:</p>
-        <StyledField {...props} component="input" type="text" name="netIncome"/>
+        <StyledField component="input" type="text" name="netIncome"/>
       </Row>
       <Row>
         <p>Rent:</p>
-        <StyledField {...props} component="input" type="text" name="rent"/>
+        <StyledField component="input" type="text" name="rent"/>
       </Row>
       <Row>
         <p>Transportation:</p>
-        <StyledField {...props} component="input" type="text" name="transportation"/>
+        <StyledField component="input" type="text" name="transportation"/>
       </Row>
       <Row>
         <p>Food:</p>
-        <StyledField {...props} component="input" type="text" name="food"/>
+        <StyledField component="input" type="text" name="food"/>
       </Row>
       <Row>
         <p>Phone:</p>
-        <StyledField {...props} component="input" type="text" name="phone"/>
+        <StyledField component="input" type="text" name="phone"/>
       </Row>
       <StyledButton type="submit">Submit</StyledButton>
     </StyledForm>
     <div>
+      <p>Total spendings:</p>
+
     </div>
   </Root>
 }
 
 
 export default compose(
+  connect(state => (
+
+  )),
   reduxForm({
     form: 'budgetCalculation'
   })
