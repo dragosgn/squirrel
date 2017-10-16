@@ -20,6 +20,7 @@ const rootReducer = combineReducers({
 
 const theme = {
   brandBlue: '#242f40',
+  brandWhite: 'white'
 }
 
 let store = createStore(rootReducer, composeWithDevTools())
