@@ -5,45 +5,62 @@ import {reduxForm} from 'redux-form'
 import {Field} from 'redux-form'
 import {connect} from 'react-redux'
 
-import { Button, Row, Col } from 'react-materialize';
 
 const Root = styled.div`
   padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
 `
 
+const Row = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.5rem;
+`
+
+const Button = styled.button`
+  background-color: ${ props => props.brandBlue};
+  padding: 0.5rem;
+`
+
+const MoneyInput = styled(Field)`
+  padding: 0.25rem;
+`
+
+
 let Calculator = (props) => {
-  return <Root container>
-    <Row>
-      <Col s={6}>
+  return <Root>
         <form>
             <Row>
-              <Field component="input" type="text" name="netIncome"/>
               <label>Net Income (€)</label>
+              <MoneyInput component="input" type="text" name="netIncome"/>
             </Row>
             <Row>
-              <Field component="input" type="text" name="rent" id="rent"/>
               <label >Rent (€)</label>
+              <MoneyInput component="input" type="text" name="rent" id="rent"/>
             </Row>
             <Row>
-              <Field component="input" type="text" name="transportation"/>
               <label >Tansportation costs</label>
+              <MoneyInput component="input" type="text" name="transportation"/>
             </Row>
             <Row>
-              <Field component="input" type="text" name="food" />
               <label >Food (€)</label>
+              <MoneyInput component="input" type="text" name="food" />
             </Row>
             <Row>
-              <Field component="input" type="text" name="phone"/>
               <label >Phone (€)</label>
+              <MoneyInput component="input" type="text" name="phone"/>
             </Row>
-            <Button waves="light" btn="large" type="submit">Submit</Button>
+            <Row style={{ justifyContent: "flexEnd"}}>
+              <Button type="submit">Submit</Button>
+            </Row>
           </form>
-          <div>
+          <Row>
             <p>Total monthly spendings:</p>
             <h5>{props.spendings} (€)</h5>
-          </div>
-      </Col>
-    </Row>
+          </Row>
   </Root>
 }
 
