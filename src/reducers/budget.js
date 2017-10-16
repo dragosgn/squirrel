@@ -7,7 +7,7 @@ let initialState = {
 export default function(state=initialState, action){
   switch(action.type) {
     case "@@redux-form/CHANGE":
-      return { ...state, spendings:"900"}
+      return { ...state, spendings: numeral(100).value()}
     default:
       return state
   }

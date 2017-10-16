@@ -5,69 +5,45 @@ import {reduxForm} from 'redux-form'
 import {Field} from 'redux-form'
 import {connect} from 'react-redux'
 
+import { Button, Row, Col } from 'react-materialize';
 
 const Root = styled.div`
   padding: 4rem;
 `
 
-const StyledField = styled(Field)`
-  margin: 1rem;
-  padding: 0.5rem;
-  min-width: 200px;
-`
-
-const StyledForm = styled.form`
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 700px;
-  border: solid 1px grey;
-  border-radus: 5px;
-`
-
-const StyledButton = styled.button`
-  max-width: 5rem;
-  padding: 0.5rem;
-  border-radius: 5px;
-`
-
-const Row = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-`
-
 let Calculator = (props) => {
-  return <Root>
-    <StyledForm>
-      <Row>
-        <p>Net Income:</p>
-        <StyledField component="input" type="text" name="netIncome"/>
-      </Row>
-      <Row>
-        <p>Rent:</p>
-        <StyledField component="input" type="text" name="rent"/>
-      </Row>
-      <Row>
-        <p>Transportation:</p>
-        <StyledField component="input" type="text" name="transportation"/>
-      </Row>
-      <Row>
-        <p>Food:</p>
-        <StyledField component="input" type="text" name="food"/>
-      </Row>
-      <Row>
-        <p>Phone:</p>
-        <StyledField component="input" type="text" name="phone"/>
-      </Row>
-      <StyledButton type="submit">Submit</StyledButton>
-    </StyledForm>
-    <div>
-      <p>Total spendings:</p>
-      {props.spendings}
-    </div>
+  return <Root container>
+    <Row>
+      <Col s={6}>
+        <form>
+            <Row>
+              <Field component="input" type="text" name="netIncome"/>
+              <label>Net Income (€)</label>
+            </Row>
+            <Row>
+              <Field component="input" type="text" name="rent" id="rent"/>
+              <label >Rent (€)</label>
+            </Row>
+            <Row>
+              <Field component="input" type="text" name="transportation"/>
+              <label >Tansportation costs</label>
+            </Row>
+            <Row>
+              <Field component="input" type="text" name="food" />
+              <label >Food (€)</label>
+            </Row>
+            <Row>
+              <Field component="input" type="text" name="phone"/>
+              <label >Phone (€)</label>
+            </Row>
+            <Button waves="light" btn="large" type="submit">Submit</Button>
+          </form>
+          <div>
+            <p>Total monthly spendings:</p>
+            <h5>{props.spendings} (€)</h5>
+          </div>
+      </Col>
+    </Row>
   </Root>
 }
 

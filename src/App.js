@@ -3,16 +3,20 @@ import {compose} from "recompose"
 import styled from "styled-components"
 import Calculator from "./components/Calculator"
 
+import { Container, Card, CardTitle, Button, Row, Col } from 'react-materialize';
 
-const Root = styled.div`
 
-`
 
 const App = () => {
-  return <Root>
-    This is the beggining of a long friendship
-    <Calculator />
-  </Root>
+  return <Container>
+    <Card
+      className='medium'
+      header={<CardTitle image='http://www.overells.com.au/files/images/content/newsletter/Budget.png'>Budget Calculator</CardTitle>}
+      >
+      Calculate your monthy spendings and budgets and find out where you can improve. Be a smart consumer!
+    </Card>
+      <Calculator />
+    </Container>
 }
 
 
