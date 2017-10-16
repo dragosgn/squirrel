@@ -47,6 +47,13 @@ const ScondaryStatement =styled.h1`
 const Col = styled.div`
   display: flex;
   flex-direction: column;
+  flex-grow: ${ props => props.grow ? props.grow : 1};
+`
+
+const EvenCol = styled.div`
+  width: 50%;
+  display: flex;
+  flex-direction: column;
 `
 
 const StyledLink = styled(Link)`
@@ -80,6 +87,10 @@ const StyledButton = styled.button`
     color: ${ props => props.theme.brandBlue};
   }
 `
+const EvenRow = styled.div`
+  display: flex;
+  flex-direction: row;
+`
 
 const Logo = styled.h1`
   color: white;
@@ -108,17 +119,16 @@ const App = () => {
       <StyledLink active="true" to="/plans">Download the app</StyledLink>
     </Row>
     <Section>
-      <Row>
-        <Col>
+      <EvenRow>
+        <EvenCol>
           <ScondaryStatement>
             Make mobile payments easy
           </ScondaryStatement>
           <p>With Verse, you can now pay and request money from your friends in the time it takes you to send a text message. It’s fast, safe, easy, and free- no hidden fees!</p>
-        </Col>
-        <Col>
-
-        </Col>
-      </Row>
+        </EvenCol>
+        <EvenCol>
+        </EvenCol>
+      </EvenRow>
     </Section>
   </Root>
 }
