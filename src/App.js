@@ -119,7 +119,7 @@ const App = () => {
       <StyledLink active="true" to="/plans">Download the app</StyledLink>
     </Row>
     <Section>
-      <EvenRow>
+      <Row>
         <EvenCol>
           <ScondaryStatement>
             Make mobile payments easy
@@ -128,7 +128,19 @@ const App = () => {
         </EvenCol>
         <EvenCol>
         </EvenCol>
-      </EvenRow>
+      </Row>
+    </Section>
+    <Section>
+      <Row>
+        <EvenCol>
+        </EvenCol>
+        <EvenCol>
+          <ScondaryStatement>
+            Create events
+          </ScondaryStatement>
+          <p>You can also use Verse to create events and share expenses from the get-go. Planning a BBQ? Giving a joint birthday gift? Going on a road trip with your friends? Pool the money together on our app. No counting change, no runs to the ATM machine!With Verse, you can now pay and request money from your friends in the time it takes you to send a text message. It’s fast, safe, easy, and free- no hidden fees!</p>
+        </EvenCol>
+      </Row>
     </Section>
   </Root>
 }
