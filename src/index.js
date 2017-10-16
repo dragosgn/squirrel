@@ -22,7 +22,7 @@ const theme = {
   brandBlue: '#242f40',
 }
 
-const store = createStore(rootReducer, composeWithDevTools)
+let store = createStore(rootReducer, composeWithDevTools())
 
 const renderApp = (Component) => {
   render(
