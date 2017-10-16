@@ -50,7 +50,20 @@ const Col = styled.div`
 `
 
 const StyledLink = styled(Link)`
-
+  padding: 1rem 1.5rem 1rem 1.5rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  :hover {
+    background-color: ${ props => props.theme.brandBlue};
+    color: white;
+  }
+  :active {
+    background-color: white;
+    font-weight: bold;
+    color: ${ props => props.theme.brandBlue};
+  }
 `
 const StyledButton = styled.button`
   background-color: transparent;
@@ -60,21 +73,23 @@ const StyledButton = styled.button`
   border-radius: 2px;
   padding: 1rem;
   cursor: pointer;
+  margin: 3rem 0 1rem 0;
   :hover {
     background-color: white;
     font-weight: bold;
-    color: ${ props => props.theme.brandGrey};
+    color: ${ props => props.theme.brandBlue};
   }
 `
 
-const Logo = styled.h3`
+const Logo = styled.h1`
   color: white;
+  font-weight: bold;
 `
 
 const App = () => {
   return <Root>
     <UpperSection>
-      <Row><Logo>Blin</Logo></Row>
+      <Row><Logo>Squirrel</Logo></Row>
       <Row>
         <Col>
           <Row>
@@ -90,7 +105,7 @@ const App = () => {
     <Row align="flex-end">
       <StyledLink to="/budgeting">Budgeting</StyledLink>
       <StyledLink to="/forecasting">Forcasting</StyledLink>
-      <StyledLink to="/plans">Plans</StyledLink>
+      <StyledLink active="true" to="/plans">Download the app</StyledLink>
     </Row>
     <Section>
       <Row>

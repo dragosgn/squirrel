@@ -22,7 +22,7 @@ const rootReducer = combineReducers({
 })
 
 const theme = {
-  brandBlue: '#242f40',
+  brandBlue: '#3498db',
   brandWhite: 'white',
   brandGrey: "#586065"
 }
