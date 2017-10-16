@@ -1,16 +1,33 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import App from './App'
-import registerServiceWorker from './registerServiceWorker'
 import {ThemeProvider} from 'styled-components'
-import { createStore, applyMiddleware, combineReducers } from 'redux'
+import { createStore, combineReducers } from 'redux'
 import { reducer as formReducer } from 'redux-form'
+import {Provider} from "react-redux"
+import {render} from 'react-dom'
+import {composeWithDevTools} from 'redux-devtools-extension'
+
+
+import App from './App'
+
 
 const rootReducer = combineReducers({
   form: formReducer
 })
 
-const store = createStore(rootReducer)
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+const theme = {
+  brandBlue: '#242f40',
+}
+
+const store = createStore(rootReducer, composeWithDev)
+
+const renderApp = (Component) => {
+  render(
+    <ThemeProvider theme={theme}>
+      <Provider store={store}>
+        <Component />
+      </Provider>
+    </ThemeProvider>,  document.getElementById('root'))
+}
+
+renderApp(App)
