@@ -12,7 +12,8 @@ const Root = styled.div`
 let Calculator = (props) => {
   return <Root>
     <form>
-      <Field {...props} component="inmput" type="text" />
+      <Field {...props} component="input" type="text" name="netIncome"/>
+      <button type="submit">Submit</button>
     </form>
   </Root>
 }
