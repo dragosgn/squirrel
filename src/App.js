@@ -87,14 +87,14 @@ const StyledButton = styled.button`
     color: ${ props => props.theme.brandBlue};
   }
 `
-const EvenRow = styled.div`
-  display: flex;
-  flex-direction: row;
-`
 
 const Logo = styled.h1`
   color: white;
   font-weight: bold;
+`
+
+const Footer = styled.div`
+
 `
 
 const App = () => {
@@ -142,6 +142,8 @@ const App = () => {
         </EvenCol>
       </Row>
     </Section>
+    <Footer>
+    </Footer>
   </Root>
 }
 
