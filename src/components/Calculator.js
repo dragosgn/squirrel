@@ -11,7 +11,8 @@ const Root = styled.div`
 
 const StyledField = styled(Field)`
   margin: 1rem;
-  padding: 0.5rem
+  padding: 0.5rem;
+  min-width: 200px;
 `
 
 const StyledForm = styled.form`
@@ -19,6 +20,9 @@ const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-width: 700px;
+  border: solid 1px grey;
+  border-radus: 5px;
 `
 
 const StyledButton = styled.button`
@@ -27,14 +31,36 @@ const StyledButton = styled.button`
   border-radius: 5px;
 `
 
+const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`
+
 let Calculator = (props) => {
   return <Root>
     <StyledForm>
-      <StyledField {...props} component="input" type="text" name="netIncome"/>
-      <StyledField {...props} component="input" type="text" name="rent"/>
-      <StyledField {...props} component="input" type="text" name="transportation"/>
-      <StyledField {...props} component="input" type="text" name="food"/>
-      <StyledField {...props} component="input" type="text" name="phone"/>
+      <Row>
+        <p>Net Income:</p>
+        <StyledField {...props} component="input" type="text" name="netIncome"/>
+      </Row>
+      <Row>
+        <p>Rent:</p>
+        <StyledField {...props} component="input" type="text" name="rent"/>
+      </Row>
+      <Row>
+        <p>Transportation:</p>
+        <StyledField {...props} component="input" type="text" name="transportation"/>
+      </Row>
+      <Row>
+        <p>Food:</p>
+        <StyledField {...props} component="input" type="text" name="food"/>
+      </Row>
+      <Row>
+        <p>Phone:</p>
+        <StyledField {...props} component="input" type="text" name="phone"/>
+      </Row>
       <StyledButton type="submit">Submit</StyledButton>
     </StyledForm>
     <div>
