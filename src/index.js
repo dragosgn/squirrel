@@ -11,7 +11,9 @@ import App from './App'
 
 
 const rootReducer = combineReducers({
-  form: formReducer
+  form: formReducer.plugin({
+    budgetCalculation: budgetReducer
+  })
 })
 
 
@@ -19,7 +21,7 @@ const theme = {
   brandBlue: '#242f40',
 }
 
-const store = createStore(rootReducer, composeWithDev)
+const store = createStore(rootReducer, composeWithDevTools)
 
 const renderApp = (Component) => {
   render(
