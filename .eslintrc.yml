@@ -3,14 +3,28 @@ env:
   commonjs: true
   es6: true
 extends: 'eslint:recommended'
+parser: "babel-eslint"
 parserOptions:
+  ecmaVersion: 8
   ecmaFeatures:
     experimentalObjectRestSpread: true
     jsx: true
   sourceType: module
+  allowImportExportEverywhere: false
 plugins:
+  - babel
+  - react
+  - import
   - react
 rules:
   linebreak-style:
     - error
     - unix
+  react/jsx-uses-vars:
+    - error
+  react/jsx-uses-react:
+    - error
+  react/jsx-no-undef:
+    - error
+  import/no-unresolved: 2
+  import/prefer-default-export: 2
