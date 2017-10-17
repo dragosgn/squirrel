@@ -6,7 +6,7 @@ const PORT = 2000
 
 
 let pool = new pg.Pool({
-  port: 5500,
+  port: 5432,
   password: "",
   database: "squirrel",
   max: 10,

@@ -6,7 +6,8 @@ import {Provider} from "react-redux"
 import {render} from 'react-dom'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import { BrowserRouter as Router} from 'react-router-dom'
-import thunk from "redux-thunk"
+import ReduxPromise from "redux-promise";
+
 
 
 import budgetReducer from "./reducers/budget"
@@ -28,7 +29,7 @@ const theme = {
 }
 
 let store = createStore(rootReducer, composeWithDevTools(
-  applyMiddleware(thunk)
+  applyMiddleware(ReduxPromise)
 ))
 
 const renderApp = (Component) => {
