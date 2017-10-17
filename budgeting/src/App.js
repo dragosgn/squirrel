@@ -1,7 +1,9 @@
 import React from 'react'
-import {compose} from "recompose"
+import {compose, withHandlers} from "recompose"
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
+
+import fetchBudget from './actions/budget'
 
 
 const Section = styled.div`
@@ -97,7 +99,7 @@ const Footer = styled.div`
 
 `
 
-const App = () => {
+const App = ({fetchBudget}) => {
   return <Root>
     <UpperSection>
       <Row><Logo>Squirrel</Logo></Row>
@@ -111,7 +113,7 @@ const App = () => {
           </Row>
         </Col>
       </Row>
-      <Row><StyledButton>Start Now</StyledButton></Row>
+      <Row><StyledButton onClick={fetchBudget}>Start Now</StyledButton></Row>
     </UpperSection>
     <Row align="flex-end">
       <StyledLink to="/budgeting">Budgeting</StyledLink>
@@ -148,5 +150,14 @@ const App = () => {
 }
 
 export default compose(
-
+  withHandlers({
+    fetchBudget: ({dispatch}) => async () => {
+      try{
+        await dispatch(fetchBudget)
+        console.log("success")
+      } catch(err) {
+        console.log(err)
+      }
+    }
+  })
 )(App)

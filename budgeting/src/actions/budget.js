@@ -1,6 +1,6 @@
 import axios from "axios"
 
-export const FETCH_BUDGET = "FETCH_BUDGET"
+const FETCH_BUDGET = "FETCH_BUDGET"
 
 export default function() {
   const url = "localhost"
