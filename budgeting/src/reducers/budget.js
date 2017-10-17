@@ -9,7 +9,7 @@ export default function(state=initialState, action){
     case "@@redux-form/CHANGE":
       return { ...state, spendings: numeral(100).value()}
     case "FETCH_BUDGET":
-      return { ...state }
+      return action.payload.data
     default:
       return state
   }
