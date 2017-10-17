@@ -2,6 +2,7 @@ import React from 'react'
 import {compose, withHandlers} from "recompose"
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
 
 import fetchBudget from './actions/budget'
 
@@ -150,10 +151,11 @@ const App = ({fetchBudget}) => {
 }
 
 export default compose(
+  connect(),
   withHandlers({
     fetchBudget: ({dispatch}) => async () => {
       try{
-        await dispatch(fetchBudget)
+        await dispatch(fetchBudget())
         console.log("success")
       } catch(err) {
         console.log(err)

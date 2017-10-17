@@ -1,13 +1,10 @@
 import axios from "axios"
 
-const FETCH_BUDGET = "FETCH_BUDGET"
-
 export default function() {
-  const url = "localhost"
+  const url = "http://localhost:2000/"
   const request = axios.get(url)
-
   return {
-    type: FETCH_BUDGET,
+    type: "FETCH_BUDGET",
     payload: request
   }
 }
