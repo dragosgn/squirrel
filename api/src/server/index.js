@@ -8,8 +8,12 @@ const PORT = 2000
 let pool = new pg.Pool({
   port: 5500,
   password: "",
-  database: "",
-  
+  database: "squirrel",
+  max: 10,
+  host: "localhost",
+  user: 'postgres',
+  idleTimeoutMillis: 1000
+
 })
 
 var app = express()
@@ -30,5 +34,22 @@ app.get('/', function(req, res) {
 })
 
 app.get('/budget', function(request, response) {
-
+  pool.connect(function(err, db, done){
+    if (err) {
+      return response.status(400).send(err)
+    }
+    else {
+      db.query("SELECT * FROM budget", function(err, table) {
+        done()
+        if(err) {
+          return response.status(404).send({message: "db call error!"})
+        }
+        else {
+          return response.status(200).send(table.rows)
+        }
+      })
+    }
+  })
 })
+
+app.listen(PORT, () => console.log("listening on port " + PORT))
