@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import {Route, Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 
-import fetchBudget from './actions/budget'
+import fetchBudget from './actions/fetchBudget'
 import Calculator from './components/Calculator.js'
 
 
