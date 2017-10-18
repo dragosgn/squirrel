@@ -13,7 +13,6 @@ let pool = new pg.Pool({
   host: "localhost",
   user: 'postgres',
   idleTimeoutMillis: 1000
-
 })
 
 var app = express()

@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "camelize": "^1.0.0",
+    "embrace-sql": "^2.0.1",
     "express": "^4.16.2",
     "express-reloadable": "^2.0.2",
     "fs": "0.0.1-security",

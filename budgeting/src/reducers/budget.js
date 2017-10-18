@@ -8,8 +8,6 @@ export default function(state=initialState, action){
   switch(action.type) {
     case "@@redux-form/CHANGE":
       return { ...state, spendings: numeral(100).value()}
-    case "FETCH_BUDGET":
-      return action.payload.data
     default:
       return state
   }

@@ -11,6 +11,7 @@ import ReduxPromise from "redux-promise";
 
 
 import budgetReducer from "./reducers/budget"
+import fetchBudgetReducer from "./reducers/fetchBudget"
 
 
 import App from './App'
@@ -19,7 +20,8 @@ import App from './App'
 const rootReducer = combineReducers({
   form: formReducer.plugin({
     budgetCalculation: budgetReducer
-  })
+  }),
+  fetchBudgetReducer
 })
 
 const theme = {
