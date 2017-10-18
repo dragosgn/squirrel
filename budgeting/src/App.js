@@ -5,7 +5,7 @@ import {Route, Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 
 import fetchBudget from './actions/fetchBudget'
-import Calculator from './components/Calculator.js'
+import Calculator from './components/Calculator'
 
 
 const Section = styled.div`
