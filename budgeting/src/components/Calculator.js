@@ -21,9 +21,17 @@ const Row = styled.div`
 `
 
 const Button = styled.button`
-  background-color: ${ props => props.brandBlue};
   padding: 0.5rem;
   margin-top: 1rem;
+  background-color: ${props => props.theme.brandWhite};
+  color: ${ props => props.theme.brandGreen};
+  :hover {
+    color: ${props => props.theme.brandWhite};
+    background-color: ${ props => props.theme.brandGreen};
+  }
+  border: 1px solid ${ props => props.theme.brandGreen};
+  border-radius: 2px;
+  min-width: 6rem;
 `
 
 const MoneyInput = styled(Field)`
@@ -41,6 +49,16 @@ const ButtonRow =styled.div`
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
+`
+
+const ResultsRow =styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.5rem;
+  border: 1px solid ${props => props.theme.brandBlue};
+  margin: 1rem 0 1rem 0;
+  border-radius: 2px;
 `
 
 
@@ -71,10 +89,9 @@ let Calculator = (props) => {
               <Button type="submit">Submit</Button>
             </ButtonRow>
           </StyledForm>
-          <Row>
-            <p>Total monthly spendings:</p>
-            <h5>{props.spendings} (€)</h5>
-          </Row>
+          <ResultsRow>
+            <p>Total monthly spendings(€) : {props.spendings}</p>
+          </ResultsRow>
   </Root>
 }
 
