@@ -32,23 +32,29 @@ app.get('/', function(req, res) {
   res.send('Hello world!')
 })
 
-app.get('/budget', function(request, response) {
+app.get('/api/budget', function(req, res) {
   pool.connect(function(err, db, done){
     if (err) {
-      return response.status(400).send(err)
+      return res.status(400).send(err)
     }
     else {
       db.query("SELECT * FROM budget", function(err, table) {
         done()
         if(err) {
-          return response.status(404).send({message: "db call error!"})
+          return res.status(404).send({message: "db call error!"})
         }
         else {
-          return response.status(200).send(table.rows)
+          return res.status(200).send(table.rows)
         }
       })
     }
   })
+})
+
+
+app.post('api/new-budget', function (req, res) {
+  console.log("request", req)
+
 })
 
 app.listen(PORT, () => console.log("listening on port " + PORT))
