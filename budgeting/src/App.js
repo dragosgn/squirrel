@@ -1,10 +1,11 @@
 import React from 'react'
 import {compose, withHandlers} from "recompose"
 import styled from 'styled-components'
-import {Link} from 'react-router-dom'
+import {Route, Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 
 import fetchBudget from './actions/budget'
+import Calculator from './components/Calculator.js'
 
 
 const Section = styled.div`
@@ -147,6 +148,7 @@ const App = ({fetchBudget}) => {
     </Section>
     <Footer>
     </Footer>
+     <Route path="/budgeting" component={Calculator}/>
   </Root>
 }
 

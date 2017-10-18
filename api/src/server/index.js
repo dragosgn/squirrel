@@ -54,7 +54,11 @@ app.get('/api/budget', function(req, res) {
 
 app.post('api/new-budget', function (req, res) {
   console.log("request", req)
+})
 
+
+app.post('api/new-investment-estimation', function(req, res) {
+  console.log("request", req)
 })
 
 app.listen(PORT, () => console.log("listening on port " + PORT))
