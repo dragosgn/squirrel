@@ -105,15 +105,17 @@ export default compose(
       const request = fetch("http://localhost:2000/api/budget").then(res => {
         return res.json()
       }).then( body => {
-        console.log(body)
-        console.log(JSON.stringify(body))
         return JSON.stringify(body)
+      }).then( values => {
+        return Object.keys(values)
       })
-      return request
+      this.setState({
+        initialValues: request
+      })
     }
   }),
   reduxForm({
     form: 'budgetCalculation',
-    // initialValues: state.fetchBudgetReducer
+    initialValues: this.state ? this.state.initialValues : null
     })
 )(Calculator)
