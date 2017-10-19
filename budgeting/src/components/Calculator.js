@@ -1,9 +1,10 @@
 import React from "react"
 import styled from "styled-components"
-import {compose} from "recompose"
+import {compose, lifecycle} from "recompose"
 import {reduxForm} from 'redux-form'
 import {Field} from 'redux-form'
 import {connect} from 'react-redux'
+import axios from 'axios'
 
 
 const Root = styled.div`
@@ -61,8 +62,8 @@ const ResultsRow =styled.div`
   border-radius: 2px;
 `
 
-
 let Calculator = (props) => {
+  console.log(props)
   return <Root>
         <StyledForm>
             <Row>
@@ -100,7 +101,15 @@ export default compose(
   connect(state => {
     return {spendings: state.form.budgetCalculation.spendings}
   }),
+  lifecycle({
+    componentDidMount() {
+      const url = "http://localhost:2000/api/budget"
+      const request = async () => await axios.get(url)
+      console.log(request())
+    }
+  }),
   reduxForm({
-    form: 'budgetCalculation'
-  })
+    form: 'budgetCalculation',
+    // initialValues: state.fetchBudgetReducer
+    })
 )(Calculator)
