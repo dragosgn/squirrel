@@ -6,7 +6,7 @@ const PORT = 2000
 
 
 let pool = new pg.Pool({
-  port: 5432,
+  port: 5430,
   password: "",
   database: "squirrel",
   max: 10,
@@ -38,7 +38,7 @@ app.get('/api/budget', function(req, res) {
       return res.status(400).send(err)
     }
     else {
-      db.query("SELECT * FROM budget with limit 1", function(err, table) {
+      db.query("SELECT * FROM budget", function(err, table) {
         done()
         if(err) {
           return res.status(404).send({message: "db call error!"})
