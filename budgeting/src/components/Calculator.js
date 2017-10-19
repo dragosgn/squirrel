@@ -4,7 +4,6 @@ import {compose, lifecycle} from "recompose"
 import {reduxForm} from 'redux-form'
 import {Field} from 'redux-form'
 import {connect} from 'react-redux'
-import axios from 'axios'
 
 
 const Root = styled.div`
@@ -103,9 +102,14 @@ export default compose(
   }),
   lifecycle({
     componentDidMount() {
-      const url = "http://localhost:2000/api/budget"
-      const request = async () => await axios.get(url)
-      console.log(request())
+      const request = fetch("http://localhost:2000/api/budget").then(res => {
+        return res.json()
+      }).then( body => {
+        console.log(body)
+        console.log(JSON.stringify(body))
+        return JSON.stringify(body)
+      })
+      return request
     }
   }),
   reduxForm({
