@@ -44,7 +44,7 @@ app.get('/api/budget', function(req, res) {
           return res.status(404).send({message: "db call error!"})
         }
         else {
-          return res.status(200).json(table.rows).send()
+          return res.status(200).json(table.rows)
         }
       })
     }
