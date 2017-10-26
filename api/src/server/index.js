@@ -10,7 +10,6 @@ const { buildSchema } = require('graphql')
 const graphqlHTTP = require('express-graphql')
 
 
-
 // graphql custom implementation
 let schema = buildSchema(`
   type Query {
@@ -19,13 +18,6 @@ let schema = buildSchema(`
   }
 `)
 
-
-let root = {
-  postTitle: () => {
-    return 'Sample api'
-  },
-  
-}
 
 let pool = new pg.Pool({
   port: 5430,
