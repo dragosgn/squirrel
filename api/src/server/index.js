@@ -5,6 +5,28 @@ let pg = require('pg')
 const PORT = 2000
 
 
+// Graphql
+const { buildSchema } = require('graphql')
+const graphqlHTTP = require('express-graphql')
+
+
+
+// graphql custom implementation
+let schema = buildSchema(`
+  type Query {
+    postTitle: String,
+    blogTitle: String
+  }
+`)
+
+
+let root = {
+  postTitle: () => {
+    return 'Sample api'
+  },
+  
+}
+
 let pool = new pg.Pool({
   port: 5430,
   password: "",
