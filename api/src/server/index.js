@@ -18,7 +18,6 @@ let schema = buildSchema(`
   }
 `)
 
-
 let pool = new pg.Pool({
   port: 5430,
   password: "",
