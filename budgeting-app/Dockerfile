@@ -6,4 +6,9 @@ WORKDIR /usr/src/app
 
 COPY package.json
 
-COPY public
+RUN npm install
+
+COPY .babelrc \
+     .eslintrc.yml \
+     webpack.config.babel.js \
+     public/index.html \
